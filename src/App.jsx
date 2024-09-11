@@ -14,14 +14,14 @@ const PublicRoute = () => {
     const { user } = useContext(UserContext);
     if (user?.success === true) {
         alert('로그인이 돼있습니다.');
-        return <Navigate to="/" />;
+        return <Navigate to="/Home" />;
     }
     return <Outlet />;
 };
 
 const PrivateRoute = () => {
     const { user } = useContext(UserContext);
-    if (user?.success === false) {
+    if (!!!user?.success) {
         alert('로그인이 안 돼있습니다.');
         return <Navigate to="/Login" />;
     }
@@ -43,7 +43,7 @@ function App() {
                         <Route path="/Login" element={<Login />} />
                         <Route path="/sign-up" element={<SignUp />} />
                     </Route>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/Home" element={<Home />} />
                 </Routes>
             </BrowserRouter>
         </UserContextProvider>

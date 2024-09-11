@@ -19,7 +19,7 @@ const Signup = () => {
         });
         if (response.data.success === true) {
             alert('회원가입 완료');
-            navigate('/');
+            navigate('/Home');
         } else {
             alert('회원가입 실패');
         }

@@ -9,56 +9,50 @@ const Header = () => {
 
     console.log('유저확인 ->', user);
 
-    useEffect(() => {}, []);
-    const handleLogout = () => {};
     return (
         <div>
-            <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <header className="flex justify-between">
                 <h1>MBTI 테스트</h1>
-                <nav>
+                <div>
                     <button
                         onClick={() => {
-                            navigate('/');
+                            navigate('/Home');
                         }}
                     >
                         홈
                     </button>
-                    <div className="space-x-4">
-                        {user ? (
-                            <>
-                                <div>
-                                    <button onClick={handleLogout}>로그아웃</button>
-                                    <button
-                                        onClick={() => {
-                                            navigate('/Profile');
-                                        }}
-                                    >
-                                        마이페이지
-                                    </button>
-                                </div>
-                            </>
-                        ) : (
-                            <div>
-                                <button
-                                    onClick={() => {
-                                        navigate('/login');
-                                    }}
-                                >
-                                    로그인
-                                </button>
-                                <button
-                                    onClick={() => {
-                                        navigate('/sign-up');
-                                    }}
-                                >
-                                    회원가입
-                                </button>
-                            </div>
-                        )}
-                    </div>
-                </nav>
+
+                    {user ? (
+                        <>
+                            <button onClick={handleLogout}>로그아웃</button>
+                            <button
+                                onClick={() => {
+                                    navigate('/Profile');
+                                }}
+                            >
+                                마이페이지
+                            </button>
+                        </>
+                    ) : (
+                        <>
+                            <button
+                                onClick={() => {
+                                    navigate('/login');
+                                }}
+                            >
+                                로그인
+                            </button>
+                            <button
+                                onClick={() => {
+                                    navigate('/sign-up');
+                                }}
+                            >
+                                회원가입
+                            </button>
+                        </>
+                    )}
+                </div>
             </header>
-            {/* <main className="container mx-auto pt-10 main">{children}</main> */}
         </div>
     );
 };

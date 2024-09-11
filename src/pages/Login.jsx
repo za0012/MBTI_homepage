@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { useNavigate, Navigate, Link } from 'react-router-dom';
 import { UserContext } from '../context/UserContext';
-import Header from '../components/Header';
 
 const Login = () => {
     const { setUser } = useContext(UserContext); //이부분 헷갈림
@@ -22,7 +21,7 @@ const Login = () => {
       
         if (response.data.success === true) {
             alert('로그인 완료');
-            navigate('/');
+            navigate('/Home');
         } else {
             alert('로그인 실패');
         }
@@ -31,7 +30,7 @@ const Login = () => {
     };
 
     return (
-        <div>
+        <div className="flex justify-center items-center flex-col h-full">
             <h1>여기는 로그인 페이지입니다.</h1>
             <form onSubmit={formSubmit}>
                 <input type="text" placeholder="아이디" value={id} onChange={(e) => setId(e.target.value)} />
